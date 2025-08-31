@@ -18,11 +18,6 @@ import {
 import Link from "next/link";
 
 const data = {
-  user: {
-    name: "Shravan",
-    email: "dev.shravanbhati@gmail.com",
-    avatar: "/Epica.png",
-  },
   navMain: [
     {
       title: "Thumbnails",
@@ -52,9 +47,9 @@ export function AppSidebar({ ...props }) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href="/dashboard">
+              <Link href="/">
                 <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Image src="/Epica.png" width={32} height={32} alt="" />
+                  <Image src="/logo.png" width={32} height={32} alt="" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-bold text-lg">Epica</span>

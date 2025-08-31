@@ -25,6 +25,13 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 export default function LandingPage() {
   return (
@@ -169,17 +176,19 @@ function Navbar() {
           </a>
         </nav>
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            className="text-white/80 hover:text-white cursor-pointer"
-          >
-            Log in
-          </Button>
-          <Link href="/dashboard">
-            <Button className="rounded-xl bg-white text-black hover:bg-white/90 cursor-pointer">
-              Get Started
-            </Button>
-          </Link>
+          <SignedOut>
+            <SignInButton>
+              <Button variant="ghost" className="cursor-pointer">
+                Sign in
+              </Button>
+            </SignInButton>
+            <SignUpButton>
+              <Button className="rounded-xl cursor-pointer">Sign up</Button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </div>
     </div>
@@ -453,14 +462,14 @@ function Pricing() {
                     /mo
                   </span>
                 </p>
-                <ui className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <CircleCheckBig className="h-4 w-4 text-white/70" />
                       <span>{feature}</span>
                     </li>
                   ))}
-                </ui>
+                </ul>
                 <Button
                   variant={plan.buttonVariant}
                   className={`w-full rounded-xl ${

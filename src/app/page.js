@@ -1,10 +1,12 @@
-import LandingPage from "@/components/ui/custom/ladningPage";
-import Image from "next/image";
+import LandingPage from "@/components/ui/custom/landingPage";
+import React from "react";
 
-export default function Home() {
+const page = () => {
   return (
-    <>
+    <div>
       <LandingPage />
-    </>
+    </div>
   );
-}
+};
+
+export default page;
