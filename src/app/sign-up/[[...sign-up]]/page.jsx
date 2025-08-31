@@ -1,9 +1,9 @@
-import { SignUp } from '@clerk/nextjs'
-import { ChartLine, Clock, ShieldCheck, Sparkles } from 'lucide-react'
+import { SignUp } from "@clerk/nextjs";
+import { ChartLine, Clock, ShieldCheck, Sparkles } from "lucide-react";
 
 export default function SignUpPage() {
   return (
-    <div className="bg-muted grid flex-1 lg:grid-cols-2">
+    <div className="bg-muted h-screen grid flex-1 lg:grid-cols-2">
       <div className="hidden flex-1 items-center justify-end p-6 md:p-10 lg:flex">
         <ul className="max-w-sm space-y-8">
           <li>
@@ -12,7 +12,8 @@ export default function SignUpPage() {
               <p className="font-semibold">Save on development time</p>
             </div>
             <p className="text-muted-foreground mt-2 text-sm">
-              Add authentication and user management to your app with just a few lines of code.
+              Add authentication and user management to your app with just a few
+              lines of code.
             </p>
           </li>
           <li>
@@ -30,7 +31,8 @@ export default function SignUpPage() {
               <p className="font-semibold">Protect your users</p>
             </div>
             <p className="text-muted-foreground mt-2 text-sm">
-              Enable features like two-step verification and enjoy automatic security updates.
+              Enable features like two-step verification and enjoy automatic
+              security updates.
             </p>
           </li>
           <li>
@@ -39,13 +41,13 @@ export default function SignUpPage() {
               <p className="font-semibold">Match your brand</p>
             </div>
             <p className="text-muted-foreground mt-2 text-sm">
-              Theme our pre-built components, or integrate with our easy-to-use APIs.
+              Theme our pre-built components, or integrate with our easy-to-use
+              APIs.
             </p>
           </li>
         </ul>
       </div>
-      <div
-        className="flex flex-1 items-center justify-center p-6 md:p-10 lg:justify-start">
+      <div className="flex flex-1 items-center justify-center p-6 md:p-10 lg:justify-start">
         <SignUp />
       </div>
     </div>

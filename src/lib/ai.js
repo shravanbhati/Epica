@@ -18,14 +18,19 @@ export async function generateGeminiImage({
   const size = "1280x720";
   const sys = `You are an image generator for YouTube thumbnails. Always produce a 16:9 frame that fits 1280x720. No borders. No letterboxing. Big bold subject.`;
 
-  const { image } = await generateImage({
-    model: geminiImage.image("gemini-2.5-flash-image"),
-    prompt: `${sys}\nAspect ${aspect}\n${prompt}`,
-    size,
-    images: attachments.length ? attachments : undefined,
-  });
+  try {
+    const { image } = await generateImage({
+      model: geminiImage.image("gemini-2.0-flash-image"),
+      prompt: `${sys}\nAspect ${aspect}\n${prompt}`,
+      size,
+      images: attachments.length ? attachments : undefined,
+    });
 
-  // image is a Blob in the AI SDK
-  const arrayBuf = await image.arrayBuffer();
-  return Buffer.from(arrayBuf);
+    // image is a Blob in the AI SDK
+    const arrayBuf = await image.arrayBuffer();
+    return Buffer.from(arrayBuf);
+  } catch (error) {
+    console.error("Error in generateGeminiImage:", error);
+    throw error;
+  }
 }
