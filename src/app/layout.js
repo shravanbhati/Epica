@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning className="h-full dark">
+      <html lang="en" suppressHydrationWarning className="h-full">
         <body>
           <ThemeProvider
             attribute="class"
