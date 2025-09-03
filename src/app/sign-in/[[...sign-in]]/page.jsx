@@ -1,9 +1,12 @@
 import { SignIn } from "@clerk/nextjs";
+import { LoginForm } from "@/components/login-form";
 
 export default function SignInPage() {
   return (
-    <div className="bg-muted h-screen flex w-full flex-1 items-center justify-center p-6 md:p-10">
-      <SignIn />
+    <div className="bg-primary-foreground flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm md:max-w-3xl ">
+        <LoginForm className="" />
+      </div>
     </div>
   );
 }

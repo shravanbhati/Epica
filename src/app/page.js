@@ -1,4 +1,5 @@
 import ClientLogoSection from "@/components/home/ClientLogoSection";
+import CTASection from "@/components/home/CTASection";
 import FAQSection from "@/components/home/FAQSection";
 import FeatureSection from "@/components/home/FeatureSection";
 import Footer from "@/components/home/Footer";
@@ -25,6 +26,7 @@ const page = () => {
       <ShowcaseSection />
       <PricingSection />
       <FAQSection />
+      <CTASection />
       <Footer />
     </div>
   );

@@ -51,10 +51,10 @@ const PricingSection = () => {
     >
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <h3 className="text-3xl sm:text-4xl font-bold">
+          <h3 className="text-xl sm:text-3xl font-bold">
             Simple, creator‑friendly pricing
           </h3>
-          <p className="mt-3 text-black/70 dark:text-white/70">
+          <p className="text-sm sm:text-xl mt-3 text-black/70 dark:text-white/70">
             Start free. Upgrade when you need more volume.
           </p>
         </div>

@@ -26,14 +26,14 @@ const HeroSection = () => {
         >
           <Badge
             variant="secondary"
-            className="bg-black/5 text-black border-black/10  dark:bg-white/10 dark:text-white border dark:border-white/15 backdrop-blur px-3 py-1 rounded-full flex gap-2 items-center"
+            className="bg-black/5 text-black border-black/10 dark:bg-white/10 dark:text-white border dark:border-white/15 backdrop-blur px-3 py-1 rounded-full flex gap-2 items-center"
           >
             <span className="inline-flex -space-x-2">
               <AvatarCircle avtar="/avtar/1.jpg" />
               <AvatarCircle avtar="/avtar/2.png" />
               <AvatarCircle avtar="/avtar/3.jpg" />
             </span>
-            <span className="text-sm/none">
+            <span className="sm:text-xs/none md:text-sm/none">
               3,200+ creators ship faster with Epica
             </span>
           </Badge>
@@ -43,12 +43,14 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05, duration: 0.7 }}
-          className="mt-6 font-extrabold tracking-tight text-balance text-5xl sm:text-6xl md:text-7xl"
+          className="mt-6 font-extrabold tracking-tight text-balance text-3xl sm:text-6xl md:text-7xl"
         >
-          Streamlined Creation for
+          <span className="bg-clip-text text-transparent bg-gradient-to-b from-black to-black/70 dark:from-white dark:to-white/70">
+            Streamlined Creation for
+          </span>
           <br />
-          <span className="inline-block bg-clip-text text-transparent bg-gradient-to-b from-black to-black/70 dark:from-white dark:to-white/70">
-            YouTube <Cover>Thumbnails & Scripts</Cover>
+          <span>
+            <Cover>Modern Creators</Cover>
           </span>
         </motion.h1>
 
@@ -56,11 +58,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7 }}
-          className="mt-5 text-lg text-black/70 dark:text-white/70 max-w-3xl mx-auto"
+          className="mt-5 sm:text-sm md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto"
         >
-          Epica is your AI copilot that drafts engaging video scripts and
-          designs eye‑catching thumbnails. Minimal setup. Localized to your
-          niche. Export‑ready in minutes.
+          Whether it’s scripts, articles, or visuals, Epica gives creators
+          everything they need to go from idea to finished content in minutes.
         </motion.p>
 
         <motion.div

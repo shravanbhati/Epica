@@ -12,10 +12,10 @@ import Image from "next/image";
 import React from "react";
 const NavBar = () => {
   const pages = [
-    { pageName: "Features", href: "#features" },
-    { pageName: "Pricing", href: "#pricing" },
-    { pageName: "Showcase", href: "#showcase" },
-    { pageName: "FAQ", href: "#faq" },
+    { id: 1, pageName: "Features", href: "#features" },
+    { id: 2, pageName: "Pricing", href: "#pricing" },
+    { id: 3, pageName: "Showcase", href: "#showcase" },
+    { id: 4, pageName: "FAQ", href: "#faq" },
   ];
   return (
     <div className="sticky top-0 z-50 w-full border-b bg-white/60 dark:border-white/10 dark:bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/40">
@@ -27,9 +27,13 @@ const NavBar = () => {
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm text-black/70 dark:text-white/70">
-          {pages.map(({ pageName, href }) => {
+          {pages.map(({ id, pageName, href }) => {
             return (
-              <a className="hover:text-black dark:hover:text-white" href={href}>
+              <a
+                className="hover:text-black dark:hover:text-white"
+                key={id}
+                href={href}
+              >
                 {pageName}
               </a>
             );

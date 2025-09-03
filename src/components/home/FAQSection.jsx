@@ -31,7 +31,7 @@ const FAQSection = () => {
       className="py-24 border-t border-black/10 dark:border-white/10"
     >
       <div className="container mx-auto max-w-4xl px-4">
-        <h3 className="text-3xl font-semibold text-center">
+        <h3 className="text-xl sm:text-3xl font-semibold text-center">
           Frequently asked questions
         </h3>
         <Accordion

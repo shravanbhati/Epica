@@ -30,11 +30,11 @@ const FeatureSection = () => {
     <section id="features" className="py-24 border-t border-white/10">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-bold tracking-tight">
             Everything you need to ship faster
           </h2>
-          <p className="mt-3 text-white/70">
-            A crisp toolkit for creators—no clutter, just speed.
+          <p className="mt-3 text-sm sm:text-xl text-white/70">
+            A crisp toolkit for creators. No clutter, just speed.
           </p>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
