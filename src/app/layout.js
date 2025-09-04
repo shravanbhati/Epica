@@ -1,5 +1,6 @@
 import { ClerkProvider } from "@/components/clerk-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
 export const metadata = {
@@ -10,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning className="h-full">
+      <html
+        lang="en"
+        suppressHydrationWarning
+        className={`h-full ${GeistSans.variable}`}
+      >
         <body>
           <ThemeProvider
             attribute="class"

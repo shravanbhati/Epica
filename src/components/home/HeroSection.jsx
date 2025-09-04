@@ -9,6 +9,7 @@ import { Cover } from "@/components/ui/cover";
 import { ChevronRight, Sparkles, Wand2, PlayCircle, Stars } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden">
@@ -61,7 +62,11 @@ const HeroSection = () => {
           className="mt-5 sm:text-sm md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto"
         >
           Whether it’s scripts, articles, or visuals, Epica gives creators
-          everything they need to go from idea to finished content in minutes.
+          everything they need to go{" "}
+          <strong className="text-black dark:text-white">
+            from idea to finished content
+          </strong>{" "}
+          in minutes.
         </motion.p>
 
         <motion.div

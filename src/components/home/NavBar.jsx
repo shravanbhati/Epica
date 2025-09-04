@@ -21,9 +21,9 @@ const NavBar = () => {
     <div className="sticky top-0 z-50 w-full border-b bg-white/60 dark:border-white/10 dark:bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/40">
       <div className="container mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Image src="/logo.png" width={26} height={26} alt="" />
+          {/* <Image src="/logo.png" width={26} height={26} alt="" /> */}
           <span className="font-bold tracking-tight text-black dark:text-white">
-            Epica
+            Epica Studio
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm text-black/70 dark:text-white/70">

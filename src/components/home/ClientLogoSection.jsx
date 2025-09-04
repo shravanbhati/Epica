@@ -2,12 +2,12 @@ import React from "react";
 
 const ClientLogoSection = () => {
   const items = [
-    "Aperture",
+    "Japaro",
     "Stackwise",
     "Nova",
-    "Polar",
+    "Jobiki",
     "Motion",
-    "Hive",
+    "YukiNihongo",
     "Echo",
     "Pulse",
   ];

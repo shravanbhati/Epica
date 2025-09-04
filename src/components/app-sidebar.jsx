@@ -52,7 +52,9 @@ export function AppSidebar({ ...props }) {
                   <Image src="/logo.png" width={32} height={32} alt="" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-bold text-lg">Epica</span>
+                  <span className="truncate font-bold text-lg">
+                    Epica Studio
+                  </span>
                 </div>
               </Link>
             </SidebarMenuButton>

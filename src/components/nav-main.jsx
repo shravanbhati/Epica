@@ -23,7 +23,7 @@ import Link from "next/link";
 export function NavMain({ items }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Create</SidebarGroupLabel>
+      <SidebarGroupLabel>YouTube</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
