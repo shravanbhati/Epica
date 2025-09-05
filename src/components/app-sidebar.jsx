@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { ImageIcon, ScrollText, Send } from "lucide-react";
-import Image from "next/image";
+import { Newspaper, LayoutDashboard } from "lucide-react";
+
 import { NavMain } from "@/components/nav-main";
-import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
@@ -14,47 +13,77 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarRail,
 } from "@/components/ui/sidebar";
+import Image from "next/image";
 import Link from "next/link";
+import { YouTube } from "./Icon";
 
 const data = {
   navMain: [
     {
-      title: "Thumbnails",
-      url: "/dashboard/thumbnail",
-      icon: ImageIcon,
-      isActive: true,
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: LayoutDashboard,
+      isCollaps: false,
     },
     {
-      title: "Script Writer",
-      url: "/dashboard/script",
-      icon: ScrollText,
+      title: "YouTube",
+      url: "#",
+      icon: YouTube,
+      isActive: false,
+      isCollaps: true,
+      items: [
+        {
+          title: "Thumbnails",
+          url: "/dashboard/thumbnails",
+        },
+        {
+          title: "Script Writer",
+          url: "/dashboard/script-writer",
+        },
+        {
+          title: "Video Idea",
+          url: "#",
+        },
+      ],
     },
-  ],
-  navSecondary: [
     {
-      title: "Feedback",
-      url: "/feedback",
-      icon: Send,
+      title: "Blog & Article",
+      url: "#",
+      icon: Newspaper,
+      isCollaps: true,
+      items: [
+        {
+          title: "Cover Image",
+          url: "#",
+        },
+        {
+          title: "Content Writer",
+          url: "#",
+        },
+        {
+          title: "Research",
+          url: "#",
+        },
+      ],
     },
   ],
 };
 
 export function AppSidebar({ ...props }) {
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
-                <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Image src="/logo.png" width={32} height={32} alt="" />
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <Image src="/logo.png" width={50} height={50} alt="" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-bold text-lg">
-                    Epica Studio
-                  </span>
+                  <span className="truncate font-semibold">Epica Studio</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -63,11 +92,11 @@ export function AppSidebar({ ...props }) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
+      <SidebarRail />
     </Sidebar>
   );
 }

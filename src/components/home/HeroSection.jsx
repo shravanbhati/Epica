@@ -44,7 +44,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05, duration: 0.7 }}
-          className="mt-6 font-extrabold tracking-tight text-balance text-3xl sm:text-6xl md:text-7xl"
+          className="mt-6 font-extrabold tracking-tight text-balance text-[28px] sm:text-6xl md:text-7xl"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-b from-black to-black/70 dark:from-white dark:to-white/70">
             Streamlined Creation for
