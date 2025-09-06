@@ -13,11 +13,6 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-[-20vh] h-[40vh] bg-[radial-gradient(50%_60%_at_50%_0%,rgba(255,255,255,0.06),transparent_70%)]"
-      />
-
       <div className="container mx-auto max-w-6xl px-4 pt-24 pb-16 sm:pt-28 sm:pb-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 10 }}

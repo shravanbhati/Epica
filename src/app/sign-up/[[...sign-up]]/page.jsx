@@ -21,7 +21,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 
-import { Spinner } from "@/components/ui/shadcn-io/spinner";
+import { Spinner } from "@/components/ui/spinner";
 import { Eye, EyeOff } from "lucide-react";
 import { AlertCircleIcon } from "lucide-react";
 import Link from "next/link";

@@ -35,7 +35,7 @@ export default function DashboardLaout({ children }) {
                 <h1>{pageName}</h1>
               </div>
             </header>
-            <main className="p-4 pt-0">{children}</main>
+            <div className="p-4 pt-0">{children}</div>
           </SidebarInset>
         </SidebarProvider>
       </div>
