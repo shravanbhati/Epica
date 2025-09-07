@@ -6,19 +6,33 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
-
-import { SignInButton, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs";
-
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  useClerk,
+} from "@clerk/nextjs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { SignOutButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { toast } from "sonner";
+
 const NavBar = () => {
   const { isLoaded, isSignedIn, user } = useUser();
 
+  const { signOut } = useClerk();
+  const handleLogout = async () => {
+    toast.promise(signOut(), {
+      loading: "Logging out...",
+      success: "You have been logged out.",
+      error: "Logout failed. Try again.",
+    });
+  };
   const pages = [
     { id: 1, pageName: "Features", href: "#features" },
     { id: 2, pageName: "Pricing", href: "#pricing" },
@@ -67,7 +81,28 @@ const NavBar = () => {
                   </Avatar>
                 )}
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-40 mx-2" align="start">
+              <DropdownMenuContent className="w-48 mx-2" align="start">
+                {!isLoaded || !user ? (
+                  <>
+                    <DropdownMenuLabel className="pb-0 truncate">
+                      Loading...
+                    </DropdownMenuLabel>
+                    <p className="text-xs px-2 text-zinc-500 truncate dark:text-zinc-400">
+                      couldn't load the email
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <DropdownMenuLabel className="pb-0 truncate">
+                      {user.fullName || "User"}
+                    </DropdownMenuLabel>
+                    <p className="text-xs px-2 text-zinc-500 truncate dark:text-zinc-400">
+                      {user.primaryEmailAddress?.emailAddress}
+                    </p>
+                  </>
+                )}
+
+                <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <Link href="/dashboard">
                     <DropdownMenuItem>Dashboard</DropdownMenuItem>
@@ -78,11 +113,9 @@ const NavBar = () => {
                 <DropdownMenuItem>Billing</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <SignOutButton>
-                  <DropdownMenuItem>
-                    <span>Log out</span>
-                  </DropdownMenuItem>
-                </SignOutButton>
+                <DropdownMenuItem onClick={handleLogout}>
+                  <span>Log out</span>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SignedIn>

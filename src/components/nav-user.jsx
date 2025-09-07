@@ -25,11 +25,22 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { SignOutButton, useUser } from "@clerk/nextjs";
+import { SignOutButton, useClerk, useUser } from "@clerk/nextjs";
+import { toast } from "sonner";
 
 export function NavUser() {
   const { isMobile } = useSidebar();
   const { isLoaded, isSignedIn, user } = useUser();
+
+  const { signOut } = useClerk();
+
+  const handleLogout = async () => {
+    toast.promise(signOut(), {
+      loading: "Logging out...",
+      success: "You have been logged out.",
+      error: "Logout failed. Try again.",
+    });
+  };
 
   if (!isLoaded || !user) {
     return (
@@ -125,13 +136,11 @@ export function NavUser() {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <SignOutButton>
-                <span className="flex gap-2 items-center cursor-pointer">
-                  <LogOut />
-                  Log out
-                </span>
-              </SignOutButton>
+            <DropdownMenuItem onClick={handleLogout}>
+              <span className="flex gap-2 items-center cursor-pointer">
+                <LogOut />
+                Log out
+              </span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { Cover } from "@/components/ui/cover";
+import { GridPattern } from "@/components/ui/custom/grid-pattern";
 import { ChevronRight, Sparkles, Wand2, PlayCircle, Stars } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +14,7 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden">
+      <GridPattern className="[mask-image:linear-gradient(to_bottom,white,transparent,transparent)]" />
       <div className="container mx-auto max-w-6xl px-4 pt-24 pb-16 sm:pt-28 sm:pb-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
