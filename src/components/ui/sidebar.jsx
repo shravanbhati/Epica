@@ -24,7 +24,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Command } from "lucide-react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -60,6 +59,17 @@ function SidebarProvider({
   // We use openProp and setOpenProp for control from outside the component.
   const [_open, _setOpen] = React.useState(defaultOpen);
   const open = openProp ?? _open;
+
+  React.useEffect(() => {
+    const match = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith(SIDEBAR_COOKIE_NAME + "="));
+
+    if (match) {
+      const value = match.split("=")[1];
+      _setOpen(value === "true");
+    }
+  }, []);
   const setOpen = React.useCallback(
     (value) => {
       const openState = typeof value === "function" ? value(open) : value;
@@ -254,9 +264,7 @@ function SidebarTrigger({ className, onClick, ...props }) {
           <span className="sr-only">Toggle Sidebar</span>
         </Button>
       </TooltipTrigger>
-      <TooltipContent className="flex">
-        <Command className="size-4" /> + B
-      </TooltipContent>
+      <TooltipContent className="hidden md:flex">⌘B</TooltipContent>
     </Tooltip>
   );
 }

@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/sidebar";
 import { SignOutButton, useClerk, useUser } from "@clerk/nextjs";
 import { toast } from "sonner";
+import ThemeToggle from "./ui/ThemeToggle";
 
 export function NavUser() {
   const { isMobile } = useSidebar();
@@ -48,7 +49,7 @@ export function NavUser() {
         <SidebarMenuItem>
           <SidebarMenuButton size="lg">
             <Avatar className="h-8 w-8 rounded-lg">
-              <AvatarFallback className="rounded-lg">--</AvatarFallback>
+              <AvatarFallback className="rounded-lg">U</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium">Loading...</span>
@@ -134,6 +135,10 @@ export function NavUser() {
                 <Bell />
                 Notifications
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <div className="flex text-sm text-zinc-400 px-2 py-0.5 items-center justify-between">
+                Theme <ThemeToggle />
+              </div>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleLogout}>
